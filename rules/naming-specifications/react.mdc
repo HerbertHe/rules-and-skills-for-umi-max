@@ -1,0 +1,22 @@
+---
+description: react 组件的命名规范，以保证组件名称的一致性和可维护性。
+alwaysApply: false
+globs:
+  - "src/**/*.tsx"
+---
+
+# React 组件命名规范
+
+## 组件命名规范
+
+1. 位于 `src/components` 或 `页面目录/components` 目录下的组件，采用 Pascal Case 风格，例如 `PageName`。
+2. 当组件的代码体量非常大，或者有很多的样式文件时，可以考虑将组件拆分为多个文件，采用 Pascal Case 风格，例如 `PageName/index.tsx`、`PageName/index.less`。
+3. 组件的风格采用 React Function Component 风格进行编写，并且组件的名称与文件/目录的名称保持一致。
+
+## 页面命名规范
+
+1. 新建页面时，都需要创建一个页面目录，用于存放页面相关的代码文件。
+2. 页面目录的命名采用 Kebab Case 风格，例如 `page-name`。
+3. 页面默认组件本身的命名采用 Pascal Case 风格，并且以 `Page` 为后缀，以显著区分于非页面，例如 `PageNamePage`。
+4. 页面目录下所有子页面的命名采用 Kebab Case 风格。
+5. 页面级专用的组件放置于 `components` 目录下，其命名遵循上述 React 组件命名规范。

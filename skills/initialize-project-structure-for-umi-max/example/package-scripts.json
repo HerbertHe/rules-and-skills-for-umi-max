@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start:dev": "cross-env REACT_APP_ENV=dev NODE_ENV=development npm run dev",
+    "start:test": "cross-env REACT_APP_ENV=test NODE_ENV=development npm run dev",
+    "start:prd": "cross-env REACT_APP_ENV=prd NODE_ENV=development npm run dev"
+  }
+}

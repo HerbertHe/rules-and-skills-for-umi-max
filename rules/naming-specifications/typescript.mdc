@@ -1,0 +1,30 @@
+---
+description: typescript 的命名规范，以保证类型名称的一致性和可维护性。
+alwaysApply: false
+globs:
+  - "src/**/*.ts"
+  - "src/**/*.tsx"
+---
+
+# Typescript 命名规范
+
+## 常量命名规范
+
+常规常量命名采用 Pascal Case 风格，例如 `ConstantName`。
+
+## interface 命名规范
+
+interface 命名采用 Pascal Case 风格，但需要以字母 `I` 开头，以显著区分于普通的对象类型，例如 `IUserInfo`。
+
+## Type 命名规范
+
+Type 命名采用 Pascal Case 风格，但需要以词组 `Type` 为结尾，以显著区分于普通的类型，例如 `UserInfoType`。
+
+## Enum 命名规范
+
+Enum 命名采用 Pascal Case 风格，但需要以词组 `Enum` 为结尾，以显著区分于普通的枚举类型，例如 `UserGenderEnum`。
+
+## API 接口定义命名规范
+
+1. API 接口参数默认使用命名箭头函数进行定义；
+2. API 接口函数的名称采用 lowerCamelCase 风格，以请求方法为开头，以词组 `Service` 为结尾，例如 `getUserListService`、`createUserService`、`updateUserService`、`deleteUserService` 等。
