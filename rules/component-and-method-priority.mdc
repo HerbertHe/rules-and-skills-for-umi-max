@@ -1,0 +1,25 @@
+---
+description: 组件与方法的选用优先级，优先使用现有组件与方法，避免重复实现。
+alwaysApply: true
+---
+
+# 组件与方法优先原则
+
+## 可用组件优先原则
+
+优先使用现有的可用组件，避免重复造轮子：
+
+1. 当项目依赖中有适用的 `pro-components` 组件时，优先使用 `pro-components` 组件，参考 `https://pro-components.antdigital.dev/sitemap.xml`；
+2. 当项目依赖中有适用的 `antd` 组件时，优先使用 `antd` 组件，参考 `https://ant.design/llms.txt` 文档，查找相关的组件说明；
+3. 当项目有符合需求的已封装 `components` 组件时，优先使用已封装组件；
+4. 当项目中没有适用的组件时，再进行兜底实现。
+
+## 可用方法优先原则
+
+优先使用现有的可用方法，避免重复造轮子：
+
+1. 页面处理接口请求时，优先使用 `useRequest` 方法，参考 `https://ahooks.js.org/hooks/use-request/basic` 文档，查找相关的使用说明；
+2. 页面需求可以使用 hooks 时，先查找 `ahooks` 文档，查找相关的使用说明；
+3. 当项目中有可用的通用方法时，优先封装使用通用方法；
+4. 全局可以通用的方法，封装到 `utils` 目录下，并在 `utils` 目录下创建 `index.ts` 文件，用于导出所有通用方法；
+5. 当项目中没有适用的方法并全局无法通用时，再在页面级进行兜底实现。

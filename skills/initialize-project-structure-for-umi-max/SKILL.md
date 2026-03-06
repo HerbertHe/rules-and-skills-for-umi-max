@@ -1,6 +1,6 @@
 ---
 name: initialize-project-structure-for-umi-max
-description: 在用户最初要求进行项目初始化结构的时候，基于 Umi Max 的原有项目结构进行调整，以符合多人协同开发的需求。
+description: 基于 Umi Max 初始化多人协作项目结构，创建或调整 config、routes、proxy、services、pages 等。在用户要求项目初始化、脚手架搭建、首次搭建工程结构、umi 项目结构时使用。
 ---
 
 # 初始化项目结构
@@ -13,12 +13,12 @@ description: 在用户最初要求进行项目初始化结构的时候，基于 
 
 按下面的优先级判断用户的 `node` 包管理器，并在执行后续操作时使用对应的包管理器命令：
 
-1. 通过读取 `package.json` 文件中的 `packageManager` 字段，判断用户的 `node` 包管理器；
-2. 通过读取 `.umirc.ts` 文件或者 `config/config.ts` 文件中的 `npmClient` 字段，判断用户的 `node` 包管理器；
-3. 通过依赖的 lock 文件的类型，判断用户的 `node` 包管理器；
-4. 如果以上方式都无法判断，则默认使用 `npm` 命令。
+1. 读取 `package.json` 的 `packageManager` 字段；
+2. 读取 `.umirc.ts` 或 `config/config.ts` 的 `npmClient` 字段；
+3. 根据 lock 文件类型判断；
+4. 以上都无法判断时默认使用 `npm`。
 
-本技能所有涉及到包管理器的命令默认使用 `pnpm` 命令，请注意根据实际情况使用对应的包管理器命令。
+本技能示例中的 `pnpm` 仅为示例，实际执行时请替换为上述判断得到的包管理器命令。
 
 ### 重整必要的全局配置文件结构
 
@@ -31,7 +31,7 @@ description: 在用户最初要求进行项目初始化结构的时候，基于 
 5. 将 `config.ts` 中的 `routes` 配置移动到 `routes.ts` 文件中，并且在 `config.ts` 文件中导入 `routes.ts` 文件，以更新配置文件。
 6. 在 `config` 目录下创建 `proxy.ts` 文件，用于配置本地转发代理解决不同环境的跨域问题，参考本技能示例文件 `example/proxy.ts` 的内容。
 7. 提醒用户记得修改 `config/proxy.ts` 文件中的代理目标地址，以符合实际需求。
-8. 执行 `pnpm add cross-env -D` 安装 `cross-env` 开发依赖，用于设置环境变量。
+8. 使用上述判断得到的包管理器执行安装，例如 `pnpm add cross-env -D`，安装 `cross-env` 开发依赖，用于设置环境变量。
 9. 为 `package.json` 文件中的 `scripts` 字段添加 `start:xxx` 脚本，用于启动项目，其中 `xxx` 为对应的环境名称，如 `dev`、`test`、`prd`。参考本技能示例文件 `example/package-scripts.json` 的内容。
 10. 在 `config/config.ts` 文件中导入 `config/proxy.ts` 文件，插入代码 `const REACT_APP_ENV = process.env.REACT_APP_ENV || "test";`，并更新 `proxy` 的配置为 `proxy[REACT_APP_ENV as keyof typeof proxy]`，以获取对应环境的代理配置。
 11. 将 `src/app.ts` 文件重命名为 `src/app.tsx` 文件，用于拓展运行时配置。
@@ -49,7 +49,7 @@ description: 在用户最初要求进行项目初始化结构的时候，基于 
 
 #### 添加必要依赖
 
-1. 执行 `pnpm add ahooks` 安装 `ahooks` 依赖。
+1. 使用上述判断得到的包管理器执行安装，例如 `pnpm add ahooks`，安装 `ahooks` 依赖。
 
 ## 约定目录结构
 

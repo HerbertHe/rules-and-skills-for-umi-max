@@ -1,5 +1,5 @@
 ---
-description: react 组件的命名规范，以保证组件名称的一致性和可维护性。
+description: React 组件与页面命名规范，以保证名称一致性和可维护性。
 alwaysApply: false
 globs:
   - "src/**/*.tsx"

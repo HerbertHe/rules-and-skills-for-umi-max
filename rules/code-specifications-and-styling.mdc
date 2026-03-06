@@ -1,6 +1,6 @@
 ---
-alwaysApply: false
 description: 代码规范与风格化要求，以保证代码的一致性和可维护性。
+alwaysApply: false
 globs:
   - "src/**/*.ts"
   - "src/**/*.tsx"
