@@ -1,5 +1,5 @@
 ---
-description: 项目开发原则，项目结构、配置文档优先与 TypeScript 类型声明。
+description: 项目开发原则，项目结构、配置文档优先、TypeScript 类型声明与代码质量校验。
 alwaysApply: true
 ---
 
@@ -43,6 +43,12 @@ src/
 ## TypeScript 类型声明原则
 
 原则上不允许声明 `any` 类型，如果需要声明 `any` 类型，请先思考是否可以避免使用 `any` 类型。
+
+## 代码质量与校验
+
+1. **禁止使用已弃用 API**：不得使用已弃用的方法或属性；以官方文档的当前推荐用法为准，避免使用标记为 deprecated 的 API。使用 antd、pro-components 等三方组件时，以项目内 `node_modules` 中该组件的类型定义为准：若类型中有 `@deprecated` 注释并提示替代 API（如 Modal 的 `destroyOnClose` → `destroyOnHidden`），须使用推荐的新 API，不得使用已弃用属性。
+2. **TypeScript 校验**：创建或修改页面、组件后，须校验 TypeScript 语法与类型错误，发现错误须修复后再交付，不得遗留类型错误或使用 `any` 规避。
+3. **三方库保护**：在项目中使用的三方库，不要修改其源代码。
 
 ## 其他原则
 
