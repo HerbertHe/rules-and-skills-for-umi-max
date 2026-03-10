@@ -88,4 +88,4 @@ src/
 
 ## 版权所有
 
-Copyright &copy; 2026 Herbert He
+MIT License &copy; 2026 Herbert He
